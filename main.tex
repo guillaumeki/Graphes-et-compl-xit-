@@ -605,7 +605,7 @@ Pour la 2 ème étape : construire un algorithme à partir de la preuve et montr
  $LEXBFS$ est un algorithme de complexité $O(n+m)$.
 \end{theorem}
 
-\subsection{Ensemble indépendant}
+\subsection{Independant Set}
 
 Les cas des arbres : 
 On choisit un noeud $x$ et on cherche à calculer l'ensemble indépendant qui contient $x$, $IS(T, x)$, et celui ne le contenant pas : $IS(T, \overline{x})'$, $IS(T_u, u)$ et $IS(T_u, \overline{u})$. Soient $v_1, ..., v_k$ les fils de $u$. Hypothèse : $\forall i \in [h]$ on connaît $IS(T_{v_i}, v_i)$ et $IS(T_{v_i}, \overline{v_i})$. $IS(T_u, u) = 1 + \sum_{i=1}^k IS(T_{v_i}, \overline{v_i})$, $IS(T_u, \overline{u}) = \sum_{i=1}^k max(IS(T_{v_i}, v_i), IS(T_{v_i}, \overline{v_i}))$.
