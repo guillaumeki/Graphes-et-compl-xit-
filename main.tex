@@ -608,11 +608,11 @@ Pour la 2 ème étape : construire un algorithme à partir de la preuve et montr
 \subsection{Ensemble indépendant}
 
 Les cas des arbres : 
-On choisit un noeud $x$ et on cherche à calculer l'ensemble indépendant qui contient $x$, $IS(T, x)$, et celui ne le contenant pas : $IS(T, \overline{x})'$, $IS(T_u, u)$ et $IS(T_u, \overline{u})$. Soient $v_1, ..., v_k$ les fils de $u$. Hypothèse : $\forall i \in [h]$ on connait $IS(T_v_i, v_i)$ et $IS(T_v_i, \overline{v_i})$. $IS(T_u, u) = 1 + \sum_{i=1}^k IS(T_v_i, \overline{v_i})$, $IS(T_u, \overline{u}) = \sum_{i=1}^k max(IS(T_v_i, v_i), IS(T_v_i, \overline{v_i}))$.
+On choisit un noeud $x$ et on cherche à calculer l'ensemble indépendant qui contient $x$, $IS(T, x)$, et celui ne le contenant pas : $IS(T, \overline{x})'$, $IS(T_u, u)$ et $IS(T_u, \overline{u})$. Soient $v_1, ..., v_k$ les fils de $u$. Hypothèse : $\forall i \in [h]$ on connaît $IS(T_{v_i}, v_i)$ et $IS(T_{v_i}, \overline{v_i})$. $IS(T_u, u) = 1 + \sum_{i=1}^k IS(T_{v_i}, \overline{v_i})$, $IS(T_u, \overline{u}) = \sum_{i=1}^k max(IS(T_{v_i}, v_i), IS(T_{v_i}, \overline{v_i}))$.
 
 \begin{proofi}{Esquisse de preuve:}
 %schema 
-$u$ est un séparateur, entre les composants connexes $T_v_i$, donc pas d'arêtes entre elles.
+$u$ est un séparateur, entre les composants connexes $T_{v_i}$, donc pas d'arêtes entre elles.
 \end{proofi}
 
 \begin{definition}
