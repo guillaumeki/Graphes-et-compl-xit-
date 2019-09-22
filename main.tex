@@ -577,9 +577,19 @@ La reconnaissance se fait en 2 phases :
     
     $i \gets 1$\;
     \While{$i \neq n$}
-    \textit{Soit $x$ un sommet de la partie $x_i$ ième partie de $S$}\;
-    $C(x) \gets i$\;
-    \textit{Remplacer dans $\mathcal{P}, \chi$, par $\{ x \}, N(x) \cap \chi_i, \overline{N(x)} \cap \chi_i$}
+    {
+        \textit{Soit $x$ un sommet de la partie $x_i$ ième partie de $S$}\;
+        $C(x) \gets i$\;
+        \textit{Remplacer dans $\mathcal{P}, \chi$, par $\{ x \}, N(x) \cap \chi_i, \overline{N(x)} \cap \chi_i$}\;
+        \ForEach{\textit{partie $\chi \neq \chi_i$}}
+        {
+            \uIf{$N(x) \cap \chi \neq \varnothing$ et $\overline{N(x)} \cap \chi \neq \varnothing$}
+            {
+                \textit{remplacer $\chi$ par $N(x) \cap \chi$, $\overline{N(x)} \cap \chi$}\;
+            }
+            $i \gets i + 1$\;
+        }
+    }
     \Return $\bar{\sigma}$
 \end{algorithm}
 
