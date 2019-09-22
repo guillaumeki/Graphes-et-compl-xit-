@@ -593,9 +593,37 @@ La reconnaissance se fait en 2 phases :
     \Return $\bar{\sigma}$
 \end{algorithm}
 
+%schema
+
 \begin{theorem}
- $G$ est triangulé si et seulement si $\bar{\sigma}$
+ $G$ est triangulé si et seulement si $\overline{\sigma} = LEXBFS(G)$ est un ordre d'élimination simplicial.
 \end{theorem}
+
+Pour la 2 ème étape : construire un algorithme à partir de la preuve et montrer que l'algorithme à une complexité linéaire.
+
+\begin{theorem}
+ $LEXBFS$ est un algorithme de complexité $O(n+m)$.
+\end{theorem}
+
+\subsection{Ensemble indépendant}
+
+Les cas des arbres : 
+On choisit un noeud $x$ et on cherche à calculer l'ensemble indépendant qui contient $x$, $IS(T, x)$, et celui ne le contenant pas : $IS(T, \overline{x})'$, $IS(T_u, u)$ et $IS(T_u, \overline{u})$. Soient $v_1, ..., v_k$ les fils de $u$. Hypothèse : $\forall i \in [h]$ on connait $IS(T_v_i, v_i)$ et $IS(T_v_i, \overline{v_i})$. $IS(T_u, u) = 1 + \sum_{i=1}^k IS(T_v_i, \overline{v_i})$, $IS(T_u, \overline{u}) = \sum_{i=1}^k max(IS(T_v_i, v_i), IS(T_v_i, \overline{v_i}))$.
+
+\begin{proofi}{Esquisse de preuve:}
+%schema 
+$u$ est un séparateur, entre les composants connexes $T_v_i$, donc pas d'arêtes entre elles.
+\end{proofi}
+
+\begin{definition}
+Obs : une clique interne d'un arbre de cliques est un séparateur.
+\end{definition}
+
+\begin{lemma}
+$S$ est un sep-min de $G$, si et seulement si $S$ est l'intersection de deux cliques max adjacentes dans un arbre de cliques. Donc, pour $G$ un graphe triangulé, il suffit de prendre l'arbre de cliques de $G$, de choisir une racine $R$ et de calculer $IS(T_R, \{x\})$ et $IS(T_R, \varnothing)$, $x \in R$. Pour une feuille de l'arbre, $IS(T_F, \varnothing) = 0$, $IS(T, F, \{ x \}) = 1$, $x \in F$.  
+Obs : $\forall x \in C$, soit $x \in C_1$, soit $x \in C_1$.
+$S = C \cap IS, |S| \leq 1$. $IS(C, S) = |S| + \sum_{i=1}^k max \{IS(C_i, S_i) - |S_i \cap S| : S_i \cap C = S \cap C_i \}$
+\end{lemma}
 
 \end{document}
  
